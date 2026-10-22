@@ -38,11 +38,11 @@ Low priority, but recorded here so it is not forgotten as a software task.
 
 | # | Action | Owner | Status |
 |---|---|---|---|
-| 9/17-1 | Understand the underlying swipe-to-type algorithms, then choose an approach | Nada | Open |
-| 9/17-2 | Review licensing (e.g. GPL-3.0 copyleft vs. Apache-2.0) for each candidate repo | Nada | Open |
-| 9/17-3 | Strip the gesture-decoding algorithm out of the Android keyboard apps | Nada | Open |
+| 9/17-1 | Understand the underlying swipe-to-type algorithms, then choose an approach | Nada | Closed |
+| 9/17-2 | Review licensing (e.g. GPL-3.0 copyleft vs. Apache-2.0) for each candidate repo | Nada | Closed |
+| 9/17-3 | Strip the gesture-decoding algorithm out of the Android keyboard apps | Nada | Closed |
 | 9/17-4 | Define requirements for the debugging setup | Nada | Open |
-| 9/17-5 | Build a simple PyQt debugging GUI | Nada | Open |
+| 9/17-5 | Build a simple PyQt debugging GUI | Nada | Closed |
 | 9/17-7 | Symposium website (low priority, later) | Nada | Open |
 
 ---
@@ -141,13 +141,13 @@ The approach is based on [SkinTrack](https://modernmobile.cs.washington.edu/docs
 
 | # | Action | Owner | Status |
 |---|---|---|---|
-| 9/22-1 | Set up a separate private GitHub repo for private code | Nada | Open |
-| 9/22-2 | Investigate muscle actuation and blood flow changes during touch | Ben | Open |
+| 9/22-1 | Set up a separate private GitHub repo for private code | Nada | Closed |
+| 9/22-2 | Investigate muscle actuation and blood flow changes during touch | Ben | Closed |
 | 9/22-3 | Look into what bigger companies are using for software | Unassigned | Open |
-| 9/22-4 | Implement on a trackpad as a proof of concept | Unassigned | Open |
-| 9/22-5 | Think of DOEs (design of experiments) to test what is viable for the ring | Ryan | Open |
+| 9/22-4 | Implement on a trackpad as a proof of concept | Nada | Closed |
+| 9/22-5 | Think of DOEs to test what is viable for the ring | Ryan | Closed |
 | 9/22-6 | Trial the FIGlab implementation | Ryan | Open |
-| 9/22-7 | Test with a drawing tablet | Shruthi | Open |
+| 9/22-7 | Test with a drawing tablet | Shruthi | Closed |
 
 ---
 
@@ -223,7 +223,7 @@ The preferred stack will be chosen at the next weekly meeting.
 | Strain sensors on the phalanges | Sideways motion could also trigger the strain sensor. Possibly manageable with sensor fusion plus a pressure sensor. |
 | Force myography (FMG) and pressure sensing | To investigate |
 | Optical sensor tracking the skin surface | A mouse is needed for prototyping, but there is no compatible dongle |
-| Acoustics | Reference: Ring-a-Pose (ACM, 10.1145/3699741, with a demo video) |
+| Acoustics | Reference: Ring-a-Pose (ACM, 10.1145/3699741) |
 | Light sensor to the fingertip | To investigate |
 
 ### IMU
@@ -236,9 +236,9 @@ The preferred stack will be chosen at the next weekly meeting.
 
 | # | Action | Owner | Status |
 |---|---|---|---|
-| 9/29-1 | Test the feel of a drawing tablet for swipe-to-type | Nada | Open |
-| 9/29-2 | Clean up criteria vs. constraints | All | Open |
-| 9/29-4 | Add a slide on the main approaches | Ben | Open |
+| 9/29-1 | Test the feel of a drawing tablet for swipe-to-type | Nada | Closed |
+| 9/29-2 | Clean up criteria vs. constraints | All | Closed |
+| 9/29-4 | Add a slide on the main approaches | Ben | Closed |
 | 9/29-5 | Revisit finger tracking and choose a preferred stack | All | Open |
 | 9/29-6 | Find out what the STM embedded AI does and whether it saves compute power | All | Open |
 | 9/29-7 | Keep investigating the IMU: power efficiency, sampling rate, 9-axis | All | Open |
@@ -249,7 +249,6 @@ The preferred stack will be chosen at the next weekly meeting.
 
 **Type:** Meeting
 **Objective:** Rework the requirements and assign sections of the PDP.
-**Reference:** Requirements Rework page in Notion.
 
 ### Terminology
 - **Objective:** what is ideal (want).
@@ -275,10 +274,88 @@ The preferred stack will be chosen at the next weekly meeting.
 
 | # | Action | Owner | Status |
 |---|---|---|---|
-| 10/8-1 | Write PDP: Introduction & Need Identification (incorporate feedback) | Ryan | Open |
-| 10/8-2 | Write PDP: Problem Definition, Objectives, Constraints, and Criteria | Ryan | Open |
-| 10/8-3 | Write PDP: Alternate Design Solutions and Design Selection Matrix | All | Open |
-| 10/8-4 | Write PDP: Patent Review | Nada, Shruthi, Ryan | Open |
-| 10/8-5 | Write PDP: Project Timeline | Ben | Open |
-| 10/8-6 | Prepare PDP: Quality of Presentation | All | Open |
-| 10/8-7 | Check the power consumption of the IMU with an onboard processor | Akshaya, Shruthi | Open |
+| 10/8-1 | Write PDP: Introduction & Need Identification (incorporate feedback) | Ryan | Closed |
+| 10/8-2 | Write PDP: Problem Definition, Objectives, Constraints, and Criteria | Ryan | Closed |
+| 10/8-3 | Write PDP: Alternate Design Solutions and Design Selection Matrix | All | Closed |
+| 10/8-4 | Write PDP: Patent Review | Nada, Shruthi, Ryan | Closed |
+| 10/8-5 | Write PDP: Project Timeline | Ben | Closed |
+| 10/8-6 | Prepare PDP: Quality of Presentation | All | Closed |
+| 10/8-7 | Check the power consumption of the IMU with an onboard processor | Akshaya, Shruthi | Closed |
+
+## October 14, 2026: Weekly Meeting
+
+**Type:** Meeting  
+**Objective:** Review sensor and battery procurement, clarify PDP requirements and design selection expectations, and finalize presentation responsibilities.
+
+### Sensor Research and Procurement
+
+An Instagram creator's finger-tracking project was identified as a useful reference for the team to review. She initially experimented with an IMU but appears to have abandoned that approach. Reverse-searching her resources led to an optical flow sensor.
+
+Current sensor procurement plans:
+
+- **Optical flow:** Purchase a sensor from AliExpress.
+- **TOF:** Borrow a time-of-flight sensor from MES rather than purchasing one. The sensor was already signed out, so availability needs to be checked in person. Infrared and ultrasonic alternatives are also available.
+- **IMU:** Continue using the IMU already obtained from MES. Although its chip is end-of-life (EOL), purchasing a replacement is not yet necessary.
+
+Additional sensor purchases can be deferred while the team evaluates the components available through MES.
+
+### Battery Research
+
+- **AliExpress:** The closest suitable battery found has a capacity of 15 mAh.
+- **Specialty supplier:** Minimum order quantity (MOQ) is 5 units, with a fixed shipping cost.
+- **Group purchasing:** Mahir's group may also be interested in small batteries, potentially allowing the teams to share shipping costs.
+
+### PDP Requirements Clarifications
+
+**Objectives, Constraints, and Criteria**
+
+- Constraints do not all need to be quantifiable. Qualitative constraints, such as ergonomics and material safety, should still be included.
+- Avoid defining the same parameter as both an objective and a constraint using different thresholds (e.g., 1-hour battery life as an objective and 5-hour battery life as a constraint).
+- Such parameters should instead be placed under constraints or used as evaluation criteria.
+- Objectives may also be included as criteria in the design selection matrix.
+
+**Design Selection Matrix**
+
+- At least three alternative design solutions must be considered in the PDP.
+- The comparison can remain at a high level; detailed technical decisions about individual sensors are not required.
+- A high-level comparison may limit the ability to evaluate technical requirements, since different form factors (e.g., ring vs. wristband) may have different requirements.
+- Evaluation criteria should be measurable where possible. Examples include:
+  - Ease of use, approximated by the number of components.
+  - Bill of materials (BOM) cost.
+
+**Presentation**
+
+- Slides from previous presentations may be reused.
+- The Introduction and Need Identification section can build on previous work, incorporating feedback and reducing unnecessary detail.
+- Strong evidence supporting the need for the project should be retained.
+
+### PDP Responsibilities
+
+| Section | Weight | Owner |
+|---|---|---|
+| Introduction & Need Identification | 20% | Ryan |
+| Problem Definition, Objectives, Constraints, and Criteria | 20% | Akshaya |
+| Alternate Design Solutions and Design Selection Matrix | 20% | Ben, Akshaya |
+| Patent Review | 20% | Nada, Shruthi, Ryan |
+| Project Timeline | 5% | Ben |
+| Quality of Presentation | 15% | All |
+
+### Action Items
+
+| # | Action | Owner | Status |
+|---|---|---|---|
+| 10/14-1 | Review the Instagram creator's finger-tracking project and resources | All | Closed |
+| 10/14-2 | Purchase an optical flow sensor from AliExpress | Ryan | Closed |
+| 10/14-3 | Visit MES to check TOF sensor availability and investigate infrared/ultrasonic alternatives | Shruthi | Open |
+| 10/14-4 | Prepare PDP: Introduction & Need Identification, incorporating previous feedback | Ryan | Closed |
+| 10/14-5 | Prepare PDP: Problem Definition, Objectives, Constraints, and Criteria | Akshaya | Closed |
+| 10/14-6 | Prepare PDP: Alternate Design Solutions and Design Selection Matrix | Ben, Akshaya | Closed |
+| 10/14-7 | Prepare PDP: Patent Review | Nada, Shruthi, Ryan | Closed |
+| 10/14-8 | Prepare PDP: Project Timeline | Ben | Closed |
+| 10/14-9 | Finalize PDP presentation slides and review presentation quality | All | Closed |
+
+## October 21, 2026: Weekly Meeting
+**Type:** Meeting  
+**Objective:** Prepare for PDP presentation.
+
+Not much to report here, besides rehersal for PDP on the 22nd. Await feedback from instructors and peers to move forward.
