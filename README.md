@@ -359,3 +359,122 @@ Additional sensor purchases can be deferred while the team evaluates the compone
 **Objective:** Prepare for PDP presentation.
 
 Not much to report here, besides rehersal for PDP on the 22nd. Await feedback from instructors and peers to move forward.
+
+---
+
+## November 3, 2026: Weekly Meeting
+
+**Type:** Meeting  
+**Objective:** Down-select the microcontroller, decide the demo approach, review sensor progress, and assign component orders and advisor meeting prep.
+
+### Microcontroller
+
+- A microcontroller is needed regardless, so the team will buy the dev board for it.
+- **ESP:** Ruled out. It has Wi-Fi and is a significant power draw.
+- **Nordic:** Current down-select.
+
+### Software and Demo
+
+There is no way to push notifications from a phone to the glasses, so the demo needs a workaround. Options considered:
+
+- Screen mirror from the phone.
+- **Build an app that emulates a conversation, with an AI chatbot to respond.**
+- Figure out a way to push notifications from the phone to the glasses (hardest).
+- Use Raven glasses instead, which supports push notifications natively.
+
+**Conclusion:** Continue developing for Snap Spectacles with the AI chatbot app.
+
+### Sensors
+
+**Time-of-flight (TOF)**
+
+- The TOF sensor works.
+- Close range currently reads as invalid.
+- A better alternative should be investigated.
+
+**Optical flow**
+
+- Not yet initiated.
+
+**IMU (Shruthi)**
+
+- Tap detection is plausible.
+- X/Y detection is difficult without another sensor to correct drift. Only the gyro was used, so results were fairly inaccurate.
+
+**IMU (Ryan)**
+
+- The IMU on the dev board is obsolete.
+- An OTS IMU was picked instead (about $9 per component):
+  - Low-power mode that allows a tap-detection interrupt
+  - Built-in capacitive touch processor
+  - Onboard processor for AI
+  - Not very power hungry
+  - Capable, but the datasheet is complicated
+
+### Electrical Architecture
+
+- **Module:** nRF chip.
+- **Bus:** I2C. It uses fewer wires, and higher speed is probably not needed.
+- **External charger:** Ben owns it.
+
+### Charging Mating
+
+- Option: power on the outside, ground on the inside.
+- Exact charging location and architecture still need to be determined, including the pad location on the FPC.
+
+### Battery
+
+- Open question: is a fuel gauge chip needed to detect battery charge and capacity?
+
+### Flashing
+
+- The ring's FPC will have exposed ZIF fingers.
+- An interface is needed from the FPC to the dev board.
+- Akshaya owns the flashing jumper. Candidate parts:
+  - [Nordic nRF54L15-DK](https://www.digikey.ca/en/products/detail/nordic-semiconductor-asa/NRF54L15-DK/25601516)
+  - [Tag-Connect TC2050-IDC-NL](https://www.digikey.ca/en/products/detail/tag-connect-llc/TC2050-IDC-NL/2605367)
+  - [AliExpress listing 1](https://www.aliexpress.com/item/1005006070515937.html)
+  - [AliExpress listing 2](https://www.aliexpress.com/item/1005006970596333.html)
+
+### Purchasing
+
+| Item                    | Details                                                | Owner | Timing                            |
+|-------------------------|--------------------------------------------------------|-------|-----------------------------------|
+| SOC dev board           | ~$70 each, order 2                                     | Ryan  | Now                               |
+| SOC modules             | ~$4.70 each; marketplace product; order ~10 eventually | n/a   | Hold off for now                  |
+| IMU and IMU dev board   | n/a                                                    | Ryan  | Now                               |
+| Batteries               | n/a                                                    | Ben   | Order today                       |
+| TOF dev board           | Maybe                                                  | n/a   | Not needed right now              |
+
+### Budget
+
+- Ben will itemize costs in an Excel budget.
+- Rough per-unit assumptions: $120 for fabrication, plus component costs (~$50 per board), plus shipping.
+- Factor in attrition.
+
+### Open Questions
+
+- Is a fuel gauge chip needed for battery capacity detection?
+- Can the TOF sensor be made to work at close range, or is a different sensor needed?
+- How can the glasses receive phone notifications beyond the demo workaround?
+
+### Action Items
+
+| #       | Action                                                                                                   | Owner   | Status |
+|---------|----------------------------------------------------------------------------------------------------------|---------|--------|
+| [M/D]-1 | Follow up with Raven (ask about realistic timeline, early units, background apps, and a texting app)     | Ryan    | Open   |
+| [M/D]-2 | Email VPG again to see if the team can borrow a Vision Pro                                               | Ben     | Open   |
+| [M/D]-3 | Document IMU testing                                                                                     | Shruthi | Open   |
+| [M/D]-4 | Look into TOF libraries for close-range detection                                                        | Akshaya | Open   |
+| [M/D]-5 | Look for a better TOF board                                                                              | Ryan    | Open   |
+| [M/D]-6 | Bring up optical flow ASAP (target: CP Thursday)                                                         | Akshaya | Open   |
+| [M/D]-7 | Order battery today                                                                                      | Ben     | Open   |
+| [M/D]-8 | Claim space for electrical components: rough component placement and FPC sizing                          | Ben     | Open   |
+| [M/D]-9 | Determine exact charging location and architecture, and identify the pad location on the FPC             | Ben     | Open   |
+| [M/D]-10 | Own the external charger                                                                                | Ben     | Open   |
+| [M/D]-11 | Look into a flashing adapter for the dev board and own the flashing jumper                              | Akshaya | Open   |
+| [M/D]-12 | Rent lockers from E2 and ask Paul about E7 lockers                                                      | Shruthi | Open   |
+| [M/D]-13 | Itemize costs in an Excel budget (fabrication, components, shipping, attrition)                         | Ben     | Open   |
+| [M/D]-14 | Fit for different fingers: build a rough finger data set; get Ryan MCO by end of Saturday.             | Ben     | Open   |
+| [M/D]-15 | Order 2 SOC dev boards                                                                                  | Ryan    | Open   |
+| [M/D]-16 | Order IMU and IMU dev board                                                                             | Ryan    | Open   |
